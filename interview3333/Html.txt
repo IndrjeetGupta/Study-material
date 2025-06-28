@@ -1,0 +1,459 @@
+<input
+  type="password"
+  name="password"
+  required
+  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+  title="Password must be at least 8 characters long, and include uppercase, lowercase, number, and special character"
+/>
+🔍 Explanation of the Regex Pattern
+Part	Meaning
+^ and $	Start and end of the string
+(?=.*[a-z])	At least one lowercase letter
+(?=.*[A-Z])	At least one uppercase letter
+(?=.*\d)	At least one digit
+(?=.*[@$!%*?&])	At least one special character
+[A-Za-z\d@$!%*?&]{8,}	Minimum of 8 allowed characters from the defined set
+
+
+🔥 Commonly Used Pseudo-classes
+Pseudo-class	Description
+:hover	Applies when the user hovers over an element.
+:active	Applies when an element is being clicked.
+:focus	Applies when an element (like input) is focused.
+:first-child	Targets the first child of a parent.
+:last-child	Targets the last child of a parent.
+:nth-child(n)	Targets the nth child.
+:not(selector)	Selects elements that are not the specified selector.
+:checked	Applies to checked checkboxes or radio buttons.
+:disabled	Applies to disabled form elements.
+:required
+
+🔹 Block Elements:
+Always start on a new line.
+
+Stretch the full width of their parent container (by default).
+
+Typically used to structure the layout or sections of a page.
+
+✅ Common Block Elements:
+<div>
+
+<p>
+
+<h1> to <h6>
+
+<header>, <footer>, <section>, <article>, <nav>
+
+<ul>, <ol>, <li>
+
+<form>, <table>, <blockquote>
+
+==================================================
+Inline Elements:
+Do not start on a new line.
+
+Only take up as much width as necessary.
+
+Typically used to format parts of text within block elements.
+
+✅ Common Inline Elements:
+<span>
+
+<a>
+
+<strong>, <em>, <b>, <i>
+
+<img>
+
+<input>, <label>, <select>, <textarea> (visually can look block-like but are inline by default)
+
+<abbr>, <cite>, <code>
+
+=======================================================================
+
+🆚 Key Differences:
+Feature	<img>	<figure>
+Purpose	Displays an image	Wraps content like an image + caption
+Semantics	Just an image	Meaningful grouping of media and caption
+Caption support	❌ Not directly supported	✅ Supports <figcaption>
+Block/Inline	Inline	Block
+HTML5 Element?	✅ Yes	✅ Yes
+
+
+==========================================================================
+
+How to specify the metadata in HTML5?
+
+
+ChatGPT said:
+In HTML5, metadata is specified using the <meta> tag inside the <head> section of an HTML document.
+
+===============================================================================================
+
+Is the <datalist> tag and <select> tag same?
+
+
+ChatGPT said:
+No, the <datalist> and <select> tags are not the same — they serve different purposes in HTML5.
+
+🔹 <select> Tag:
+Creates a dropdown menu with predefined options.
+
+Users must choose from the list (unless <option> values allow empty).
+
+Works with a <form> and sends the selected value on submission.
+
+✅ Example:
+html
+Copy
+Edit
+<label for="fruits">Choose a fruit:</label>
+<select id="fruits" name="fruit">
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+  <option value="mango">Mango</option>
+</select>
+🔹 <datalist> Tag:
+Works with an <input> element to provide auto-suggestions as the user types.
+
+Users can either pick from the list or type a custom value.
+
+Useful for search inputs or flexible text fields.
+
+✅ Example:
+html
+Copy
+Edit
+<label for="browser">Choose your browser:</label>
+<input list="browsers" id="browser" name="browser">
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Safari">
+  <option value="Edge">
+</datalist>
+
+================================================================================
+
+🖼️ What is an Image Map in HTML?
+An Image Map is a single image with multiple clickable areas, where each area can link to a different URL or trigger a specific action. This allows you to define interactive regions on an image without needing multiple images or elements.
+
+✅ Key Tags Used:
+<img>: Displays the image.
+
+<map>: Defines the image map.
+
+<area>: Defines clickable areas inside the image map.
+
+📌 Basic Example:
+html
+Copy
+Edit
+<img src="worldmap.jpg" usemap="#worldmap" alt="World Map">
+
+<map name="worldmap">
+  <area shape="rect" coords="50,50,150,150" href="https://usa.com" alt="USA">
+  <area shape="circle" coords="300,200,40" href="https://india.com" alt="India">
+  <area shape="poly" coords="400,100,420,120,410,140" href="https://japan.com" alt="Japan">
+</map>
+
+
+==================================================================================
+
+🧠 What Are Semantic Elements in HTML?
+Semantic elements in HTML are tags that clearly describe their meaning and purpose in the structure of a web page — both to browsers and developers.
+
+
+✅ Common Semantic Elements in HTML5:
+Element	Purpose
+<header>	Introductory content or navigation links for a section
+<nav>	Navigation menu or links
+<main>	Main content of the document
+<section>	A thematic grouping of content, usually with a heading
+<article>	A self-contained, reusable piece of content (e.g. blog post)
+<aside>	Sidebar or tangential content (ads, tips, links)
+<footer>	Footer info for a section or the page (e.g., copyright)
+<figure>	Groups media (images, diagrams) with <figcaption>
+<figcaption>	Caption or description for a <figure>
+<mark>	Highlights or emphasizes text
+<time>	Represents a specific time or date
+
+
+============================================================================================
+
+Attribute	Purpose
+href	URL for links (<a>)
+src	Source file path for images/videos
+alt	Alternate text for images
+class	Assigns a CSS class
+id	Assigns a unique ID
+style	Inline CSS styling
+title	Tooltip text
+
+
+============================================================================================
+
+
+🔤 What Are HTML Entities?
+HTML entities are special codes used to display reserved characters, symbols, or invisible characters in HTML that the browser would otherwise misinterpret.
+
+✅ Why Use HTML Entities?
+To display special characters like <, >, &, ", ', etc., which are otherwise interpreted as HTML syntax.
+
+To include non-keyboard characters like ©, ₹, €, →, or emojis.
+
+To insert invisible or spacing characters like &nbsp; (non-breaking space).
+
+
+============================================================================================
+
+10. Describe HTML layout structure.
+Every web page has different components to display the intended content and a specific UI. But still, there are few things which are templated and are globally accepted way to structure the web page, such as:
+
+<header>: Stores the starting information about the web page.
+<footer>: Represents the last section of the page.
+<nav>: The navigation menu of the HTML page.
+<article>: It is a set of information.
+<section>: It is used inside the article block to define the basic structure of a page.
+<aside>: Sidebar content of the page.
+
+
+============================================================================================
+
+
+
+11. How to optimize website assets loading?
+To optimize website load time we need to optimize its asset loading and for that:
+
+CDN hosting - A CDN or content delivery network is geographically distributed servers to help reduce latency.
+File compression - This is a method that helps to reduce the size of an asset to reduce the data transfer
+File concatenation - This reduces the number of HTTP calls
+Minify scripts - This reduces the overall file size of js and CSS files
+Parallel downloads - Hosting assets in multiple subdomains can help to bypass the download limit of 6 assets per domain of all modern browsers. This can be configured but most general users never modify these settings.
+Lazy Loading - Instead of loading all the assets at once, the non-critical assets can be loaded on a need basis.
+
+==============================================================
+12. What are the various formatting tags in HTML?
+ HTML has various formatting tags:
+
+<b> - makes text bold
+<i> - makes text italic
+<em> - makes text italic but with added semantics importance
+<big> - increases the font size of the text by one unit
+<small> - decreases the font size of the text by one unit
+<sub> - makes the text a subscript
+<sup> - makes the text a superscript
+<del> - displays as strike out text
+<strong> - marks the text as important
+<mark> - highlights the text
+<ins> - displays as added text
+
+
+15. What is the difference between <strong>, <b> tags and <em>, <i> tags?
+
+
+=======================================================================
+
+14. Please explain how to indicate the character set being used by a document in HTML?
+The character set is defined in <meta> tag inside <head> element.
+
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="UTF-8">
+   ...
+   ...
+ </head>
+ ...
+</html>
+
+
+======================================================
+16. What is the significance of <head> and <body> tag in HTML?
+The <head> and <body> tags in HTML define two main sections of an HTML document, each serving a distinct purpose:
+
+<head> tag:
+Purpose: Contains meta-information about the document (not directly displayed on the webpage).
+
+Common content inside <head>:
+
+<title> – sets the page title shown in the browser tab.
+
+<meta> – for character encoding, keywords, author, etc.
+
+<link> – to external stylesheets.
+
+<script> – for linking or writing JavaScript.
+
+<style> – internal CSS.
+
+Example:
+
+html
+Copy
+Edit
+<head>
+  <title>My Webpage</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body> tag:
+Purpose: Contains the actual content that is visible on the web page.
+
+Common content inside <body>:
+
+Headings, paragraphs, images, links, forms, videos, etc.
+
+Example:
+
+html
+Copy
+Edit
+<body>
+  <h1>Welcome to My Webpage</h1>
+  <p>This is the main content area.</p>
+</body>
+In summary:
+<head> = Information about the document.
+
+<body> = Content shown to users.
+
+Would you like a complete example combining both?
+
+
+
+==================================
+
+Cell Spacing is the space or gap between two consecutive cells. Whereas, Cell Padding is the space or gap between the text
+
+30. How to handle events in HTML?
+HTML allows event trigger actions in browsers using javascript or JQuery. There are a lot of events like ‘onclick’, ‘ondrag’, ‘onchange’, etc.
+
+
+19. Explain new input types provided by HTML5 for forms?
+Following are the significant new data types offered by HTML5:
+
+Date - Only select date by using type = "date"
+Week - Pick a week by using type = "week"
+Month - Only select month by using type = "month"
+Time - Only select time by using type = "time".
+Datetime - Combination of date and time by using type = "datetime"
+Datetime-local - Combination of  date and time by using type = "datetime-local." but ignoring the timezone
+Color - Accepts multiple colors using type = "color"
+Email - Accepts one or more email addresses using type = "email"
+Number - Accepts a numerical value with additional checks like min and max using type = "number"
+Search - Allows searching queries by inputting text using type = "search"
+Tel - Allows different phone numbers by using type = "tel"
+Placeholder - To display a short hint in the input fields before entering a value using type = "placeholder"
+Range - Accepts a numerical value within a specific range using type = "range"
+Url - Accepts a web address using type = "url”
+<form>  
+        <div>
+            <label>Date:</label>
+            <input type="date" id="date" />
+            <br>
+            <label>Week:</label>
+            <input type="week" id="week" />
+            <br>
+            <label>Month:</label>
+            <input type="month" id="month" />
+            <br>
+            <label>Time:</label>
+            <input type="time" id="time" />
+            <br>
+            <label>Datetime:</label>
+            <input type="datetime" id="datetime" />
+            <br>
+            <label>Datetime Local:</label>
+            <input type="datetime-local" id="datetime-local" />
+            <br>
+            <label>Color:</label>
+            <input type="color" id="color"/>
+            <br>
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="email address" />
+            <br>
+            <label>Number:</label>
+            <input type="number" id="number" />
+            <br>
+            <label>Search:</label>
+            <input type="search" id="search" />
+            <br>
+            <label>Phone:</label>
+            <input type="tel" id="phone" placeholder="Phone Number" pattern="\d{10}$" />
+            <br>
+            <label>Range:</label>
+            <input type="range" id="range" />
+            <br>
+            <label>URL:</label>
+            <input type="url" id="url"/>
+        </div>  
+    </form>
+
+    29. What are forms and how to create forms in HTML?
+The HTML form is used to collect the user inputs. HTML provides a <form> tag to create forms.
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+ When to use scripts in the head and when to use scripts in the body?
+
+ ✅ Use <script> in the <head> when:
+You want the script to run before the HTML content is parsed.
+
+
+✅ **Use <script> at the end of <body> when:
+Your script depends on elements in the page (e.g., buttons, inputs).
+
+You want the HTML to fully load first, then run JavaScript.
+
+27. How to include javascript code in HTML?
+HTML provides a <script> tag using which we can run the javascript code and make our HTML page more dynamic.
+
+26. Difference between link tag <link> and anchor tag <a>?
+The anchor tag <a> is used to create a hyperlink to another webpage or to a certain part of the webpage and these links are clickable, whereas, link tag <link> defines a link between a document and an external resource and these are not clickable.
+
+
+25. In how many ways can we specify the CSS styles for the HTML element?
+There are three ways in which we can specify the styles for HTML elements:
+
+Inline: Here we use the ‘style’ attribute inside the HTML element.
+Internal: Here we use the <style> tag inside the <head> tag. To apply the style we bind the elements using ‘id’ or ‘class’ attributes.
+External: Here we use the <link> tag inside <head> tag to reference the CSS file into our HTML code. Again the binding between elements and styles is done using ‘id’ or ‘class’ attributes.
+
+
+
+24. How to specify the link in HTML and explain the target attribute?
+HTML provides a hyperlink - <a> tag to specify the links in a webpage. The ‘href’ attribute is used to specify the link and the ‘target’ attribute is used to specify, where do we want to open the linked document. The ‘target’ attribute can have the following values:
+
+_self: This is a default value. It opens the document in the same window or tab as it was clicked.
+_blank: It opens the document in a new window or tab.
+_parent: It opens the document in a parent frame.
+_top: It opens the document in a full-body window.
+
+
+23. What is the difference between “display: none” and “visibility: hidden”, when used as attributes to the HTML element.
+When we use the attribute “visibility: hidden” for an HTML element then that element will be hidden from the webpage but still takes up space. Whereas, if we use the “display: none” attribute for an HTML element then the element will be hidden, and also it won’t take up any space on the webpage.
+
+
+22. In how many ways you can display HTML elements?
+inline: Using this we can display any block-level element as an inline element. The height and width attribute values of the element will not affect.
+block: using this, we can display any inline element as a block-level element. 
+inline-block: This property is similar to inline, except by using the display as inline-block, we can actually format the element using height and width values.
+flex: It displays the container and element as a flexible structure. It follows flexbox property.
+inline-flex: It displays the flex container as an inline element while its content follows the flexbox properties.
+grid: It displays the HTML elements as a grid container.
+none: Using this property we can hide the HTML element.
+
+
+19. How can we club two or more rows or columns into a single row or column in an HTML table?
+HTML provides two table attributes “rowspan” and “colspan” to make a cell span to multiple rows and columns respectively.
+
+
+
+20. What are the New tags in Media Elements in HTML5?
+<audio> - Used for sounds, audio streams, or music, embed audio content without any additional plug-in.
+<video> - Used for video streams, embed video content etc.
+<source> - Used for multiple media resources in media elements, such as audio, video, etc.
+<embed> - Used for an external application or embedded content.
+<track> - Used for subtitles in the media elements such as video or audio.

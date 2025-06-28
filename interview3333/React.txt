@@ -1,0 +1,334 @@
+1. What is Reconciliation in React?
+Answer:
+Reconciliation is the process where React updates the DOM efficiently. React uses the Virtual DOM and a diffing algorithm to compare previous and new component states, then updates only the changed parts.
+
+
+2. What is React Fiber?
+Answer:
+React Fiber is the new reconciliation engine introduced in React 16 that enables:
+
+Asynchronous rendering
+
+Pausing and resuming work
+
+Prioritization of UI updates
+
+
+7. How does React handle Memory Leaks?
+Answer:
+Memory leaks occur when components subscribe to events but don’t clean up.
+
+Solution: Cleanup inside useEffect
+
+
+function Timer() {
+  React.useEffect(() => {
+    const interval = setInterval(() => console.log("Running..."), 1000);
+    return () => clearInterval(interval); // Cleanup
+  }, []);
+
+  return <h1>Timer</h1>;
+}
+
+
+
+10. What is the difference between key and ref in React?
+Feature	key	ref
+Purpose	Helps React identify items	Accesses DOM elements
+Usage	Used in lists (map())	Used for direct DOM manipulation
+Example	<li key={id}>	<input ref={inputRef} />
+Example Using key in lists:
+
+jsx
+Copy
+Edit
+const items = ["Apple", "Banana", "Cherry"];
+items.map((item, index) => <li key={index}>{item}</li>);
+Example Using ref to access DOM:
+
+jsx
+Copy
+Edit
+const inputRef = React.useRef(null);
+<input ref={inputRef} />;
+
+
+
+🕸️ Why Is <Suspense> Used in React?
+<Suspense> is used to wrap lazy-loaded components (via React.lazy) and display a fallback UI (like a loader or message) while the component is being loaded.
+5. What is Suspense and Lazy Loading in React?
+Answer:
+Suspense is used to handle loading states while fetching data or rendering lazily loaded components.
+
+Lazy loading means loading something only when it is needed, not at the beginning, to make apps faster.
+
+Faster first load: The app starts quickly.
+
+Saves memory and bandwidth.
+
+Improves user experience (especially for big apps).
+
+import React, { lazy, Suspense } from "react";
+
+const LazyComponent = lazy(() => import("./LazyComponent"));
+
+function App() {
+  return (
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <LazyComponent />
+    </Suspense>
+  );
+}
+
+
+// In React, event handlers are functions that are triggered when a specific event occurs, such as a click, change, hover, or key press. React's event handling is similar to standard DOM event handling but follows the Synthetic Event system, which provides better performance and cross-browser consistency.
+
+// Common React Event Handlers
+// Here are some frequently used event handlers in React:
+
+// Event Type	Handler Function	Description
+// Click	onClick	Fires when an element is clicked
+// Change	onChange	Fires when the value of an input, select, or textarea changes
+// Submit	onSubmit	Fires when a form is submitted
+// Mouse Enter	onMouseEnter	Fires when the mouse enters an element
+// Mouse Leave	onMouseLeave	Fires when the mouse leaves an element
+// Key Down	onKeyDown	Fires when a key is pressed
+// Key Up	onKeyUp	Fires when a key is released
+// Focus	onFocus	Fires when an element gains focus
+
+
+🔵 What is a Controlled Component in React?
+A controlled component is a form element (like <input>, <textarea>, <select>) whose value is controlled by React's state.
+
+React controls what’s inside the input box.
+
+User types → React updates the state → State updates the input value.
+
+You must handle onChange to update the value.
+
+✏️ Small Example:
+jsx
+Copy
+Edit
+import { useState } from 'react';
+
+function ControlledComponent() {
+  const [text, setText] = useState('');
+
+  return (
+    <input
+      value={text}                 // controlled by state
+      onChange={(e) => setText(e.target.value)} // update state on typing
+    />
+  );
+}
+
+
+ Why Use Controlled Components?
+Easy to validate user input.
+
+Easy to disable, clear, or manipulate input programmatically.
+
+Keeps everything in sync inside React.
+
+🔵 What is an Uncontrolled Component in React?
+An uncontrolled component is a form element (like <input>, <textarea>, <select>) where the DOM itself manages the value — not React.
+
+The input keeps its own value inside the browser automatically.
+
+You use a ref to read the value when you need it.
+
+No need for useState or onChange.
+
+✏️ Small Example:
+jsx
+Copy
+Edit
+import { useRef } from 'react';
+
+function UncontrolledComponent() {
+  const inputRef = useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);  // accessing value directly from DOM
+  };
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={handleSubmit}>Show Value</button>
+    </>
+  );
+}
+✅ Here, you don't manage the value in React.
+✅ When the user types, the input updates itself.
+✅ When you click the button, you read the value using inputRef.current.value.
+
+🛠 Why Use Uncontrolled Components?
+Less code for simple forms.
+
+Good for quick tasks where you don't need validation while typing.
+
+Useful when integrating non-React libraries (like plain JavaScript plugins).
+
+react 18 Feature
+server side clint side rendering
+hydration
+react profiler
+
+
+JSON (JavaScript Object Notation) is a lightweight data format used to store and exchange data. It's easy to read and write for humans and machines.
+
+✅ Basic JSON Format Rules:
+Data is in key-value pairs.
+
+Keys must be strings (in double quotes).
+
+Values can be:
+
+String
+
+Number
+
+Boolean
+
+null
+
+Array
+
+Another JSON object
+
+🔹 Example of JSON:
+json
+Copy
+Edit
+{
+  "name": "Alice",
+  "age": 25,
+  "isStudent": false,
+  "skills": ["JavaScript", "React", "Node.js"],
+  "address": {
+    "city": "New York",
+    "zip": "10001"
+  }
+}
+⚠️ Common Mistakes to Avoid:
+Keys must be in double quotes: "key", not 'key' or key.
+
+JSON does not support comments.
+
+Trailing commas are not allowed.
+
+Would you like help converting a JavaScript object to JSON or vice versa?
+
+
+In React, a Higher-Order Component (HOC) is a function that takes a component and returns a new component with additional props or behavior. It's a pattern used to reuse component logic
+
+
+======================
+
+Yes, in React, React.lazy() is used to lazy-load a single component — meaning the component is only loaded when it's needed (e.g. when it's rendered), which helps improve initial page load performance.
+
+✅ Basic Usage of React.lazy():
+jsx
+Copy
+Edit
+import React, { Suspense } from 'react';
+
+const MyComponent = React.lazy(() => import('./MyComponent'));
+
+function App() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MyComponent />
+    </Suspense>
+  );
+}
+🔍 Key Points:
+React.lazy() accepts a function that returns a dynamic import().
+
+<Suspense> is required to wrap any lazy-loaded component and provides a fallback (like a spinner or loading text).
+
+Useful for code splitting in large applications.
+
+🚫 Not For:
+Multiple components at once (use dynamic imports per component).
+
+Server-side rendering (SSR) without additional setup (like with Next.js).
+
+Would you like to see an example using React.lazy() with React Router?
+
+
+
+
+
+
+
+You said:
+when lazy load use
+
+
+ChatGPT said:
+🐢 When to Use Lazy Loading in React (React.lazy)?
+You should use React.lazy() when you want to optimize your app's performance by loading components only when they are needed, instead of all at once during the initial load.
+
+✅ Common Use Cases for Lazy Loading:
+Large Components or Modules
+
+Example: Graphs, maps, editors, or charts.
+
+jsx
+Copy
+Edit
+const Editor = React.lazy(() => import('./Editor'));
+Route-Based Code Splitting
+
+Load different pages or sections of the app only when a user navigates to them.
+
+jsx
+Copy
+Edit
+const AboutPage = React.lazy(() => import('./pages/About'));
+Conditional Rendering
+
+Only load components that may or may not be shown based on a condition.
+
+jsx
+Copy
+Edit
+{showChart && <Chart />}
+Admin or Authenticated Areas
+
+Avoid loading admin/user-only parts of the app unless logged in or authorized.
+
+Third-Party Libraries
+
+Delay loading of big dependencies like rich-text editors or analytics tools.
+
+🔁 Example:
+jsx
+Copy
+Edit
+import React, { Suspense } from 'react';
+
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+function App() {
+  return (
+    <div>
+      <h1>Main App</h1>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyComponent />
+      </Suspense>
+    </div>
+  );
+}
+🧠 Summary:
+Use lazy loading in React to reduce initial load time by splitting your app into smaller chunks that load only when needed — especially helpful in large apps or apps with many routes.
+
+Want help integrating React.lazy with React Router or handling loading states better?
+
+=======================
+
+🕸️ Why Is <Suspense> Used in React?
+<Suspense> is used to wrap lazy-loaded components (via React.lazy) and display a fallback UI (like a loader or message) while the component is being loaded.

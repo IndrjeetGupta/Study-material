@@ -1,0 +1,81 @@
+
+🔹 Basic Level
+What is Redux?
+
+Redux is a predictable state container for JavaScript apps. It helps manage application state in a centralized store using actions and reducers.
+
+What are the core principles of Redux?
+
+Single source of truth
+
+State is read-only
+
+Changes are made with pure functions (reducers)
+
+What are the main components of Redux?
+
+Store
+
+Actions
+
+Reducers
+
+What is an action in Redux?
+
+An object that describes an event or intention to change the state. It must have a type property.
+
+What is a reducer?
+
+A pure function that takes the current state and an action, and returns the new state.
+
+What is the Redux store?
+
+A centralized place that holds the application state and provides methods like dispatch, getState, and subscribe.
+
+🔹 Intermediate Level
+What is the purpose of dispatch() in Redux?
+
+dispatch() sends an action to the reducer to update the state.
+
+What is middleware in Redux?
+
+Middleware provides a way to interact with actions before they reach the reducer—used for async logic, logging, etc. (e.g., redux-thunk, redux-saga)
+
+What is redux-thunk?
+
+A middleware that lets you write action creators that return a function instead of an action—commonly used for handling async operations.
+
+How do you handle asynchronous actions in Redux?
+
+Using middleware like redux-thunk or redux-saga.
+
+Can you explain the flow of data in Redux?
+
+UI ➝ dispatch(action) ➝ middleware (if any) ➝ reducer ➝ new state ➝ UI re-renders
+
+🔹 Advanced Level
+What is the difference between mapStateToProps and mapDispatchToProps?
+
+mapStateToProps: maps state from the store to component props.
+
+mapDispatchToProps: maps dispatch actions to component props.
+
+What are selectors in Redux?
+
+Functions used to derive or extract specific parts of the state, often using reselect for memoization.
+
+What are some alternatives to Redux?
+
+Context API, Zustand, Recoil, Jotai, MobX, XState
+
+What problems can Redux introduce if misused?
+
+Overhead for small apps, boilerplate code, tightly coupled logic if not well organized.
+
+How do you persist state in Redux?
+
+Using libraries like redux-persist to save the Redux store to localStorage or sessionStorage.
+
+What is the difference between Redux Toolkit and plain Redux?
+
+Redux Toolkit is the official, recommended way to write Redux logic. It reduces boilerplate, includes createSlice, createAsyncThunk, and built-in dev tools support.

@@ -1,0 +1,43 @@
+1. Descendant Combinator ( — space)
+Selects all elements that are descendants of a specified element (at any depth).
+
+css
+Copy
+Edit
+div p {
+  color: red;
+}
+Targets all <p> inside any <div>.
+
+2. Child Combinator (>)
+Selects all elements that are direct children of a specified element.
+
+css
+Copy
+Edit
+div > p {
+  color: blue;
+}
+Targets only <p> elements that are directly inside a <div>.
+
+3. Adjacent Sibling Combinator (+)
+Selects an element that is immediately after another element.
+
+css
+Copy
+Edit
+h1 + p {
+  font-size: 18px;
+}
+Targets the first <p> immediately after an <h1>.
+
+4. General Sibling Combinator (~)
+Selects all elements that are siblings after a specified element (not necessarily immediately after).
+
+css
+Copy
+Edit
+h1 ~ p {
+  color: green;
+}
+Targets all <p> elements that are siblings after an <h1>.
